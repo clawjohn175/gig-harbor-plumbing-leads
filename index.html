@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gig Harbor Plumbing Help | Fast Local Plumbing Quotes</title>
+    <meta
+      name="description"
+      content="Need a plumber in Gig Harbor, WA? Tell us your plumbing issue and get matched with local pros."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="container">
+        <p class="badge">Gig Harbor, Washington</p>
+        <h1>Need a plumber fast?</h1>
+        <p class="subhead">
+          Describe your issue in under 2 minutes. We’ll connect you with trusted local plumbers who can handle the job.
+        </p>
+        <a href="#lead-form" class="btn btn-primary">Get My Plumbing Quote</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="trust">
+        <div class="container grid-3">
+          <div>
+            <h3>Local Focus</h3>
+            <p>Built for homeowners and renters in Gig Harbor, WA.</p>
+          </div>
+          <div>
+            <h3>Urgent + Routine Jobs</h3>
+            <p>Leaks, clogs, water heaters, sewer backups, and more.</p>
+          </div>
+          <div>
+            <h3>Simple Process</h3>
+            <p>Submit once, then get contacted by available plumbing pros.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="form-section" id="lead-form">
+        <div class="container">
+          <h2>Tell us about your plumbing issue</h2>
+          <p class="muted">No payment required. We’ll use this info to match you with local plumbers.</p>
+
+          <form id="plumbingLeadForm" novalidate>
+            <div class="grid-2">
+              <label>
+                First name
+                <input type="text" name="firstName" required />
+              </label>
+              <label>
+                Last name
+                <input type="text" name="lastName" required />
+              </label>
+            </div>
+
+            <div class="grid-2">
+              <label>
+                Phone number
+                <input type="tel" name="phone" required placeholder="(253) 555-1234" />
+              </label>
+              <label>
+                Email
+                <input type="email" name="email" required placeholder="you@example.com" />
+              </label>
+            </div>
+
+            <div class="grid-2">
+              <label>
+                Service address (Gig Harbor area)
+                <input type="text" name="address" required placeholder="Street + ZIP" />
+              </label>
+              <label>
+                Is this urgent?
+                <select name="urgency" required>
+                  <option value="" selected disabled>Select one</option>
+                  <option>Emergency (ASAP)</option>
+                  <option>Within 24 hours</option>
+                  <option>Within 3 days</option>
+                  <option>Flexible</option>
+                </select>
+              </label>
+            </div>
+
+            <label>
+              Plumbing issue type
+              <select name="issueType" required>
+                <option value="" selected disabled>Select one</option>
+                <option>Leaking pipe</option>
+                <option>Drain clog</option>
+                <option>Water heater repair/replacement</option>
+                <option>Toilet/sink/faucet repair</option>
+                <option>Sewer line issue</option>
+                <option>Garbage disposal issue</option>
+                <option>Other</option>
+              </select>
+            </label>
+
+            <label>
+              Describe the problem
+              <textarea
+                name="issueDetails"
+                rows="5"
+                required
+                placeholder="What’s happening? Any symptoms, when it started, and anything already tried?"
+              ></textarea>
+            </label>
+
+            <label class="checkbox">
+              <input type="checkbox" name="consent" required />
+              I agree to be contacted by phone, text, or email regarding my plumbing request.
+            </label>
+
+            <button type="submit" class="btn btn-primary">Submit My Request</button>
+            <p id="formMessage" class="form-message" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-wrap">
+        <p>© <span id="year"></span> Gig Harbor Plumbing Help</p>
+        <p class="muted">Lead-matching service for local plumbing professionals in Gig Harbor, WA.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
