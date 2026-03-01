@@ -6,7 +6,8 @@ Simple static website to collect plumbing leads for Gig Harbor, Washington.
 
 - Presents a local plumbing lead capture landing page
 - Collects contact info + issue details + urgency
-- Stores submitted leads in browser `localStorage` (demo mode)
+- Sends leads to a backend API route (`/api/lead`)
+- Forwards alerts by email (Resend) and optional SMS (Twilio)
 
 ## Run locally
 
@@ -18,10 +19,28 @@ python3 -m http.server 8080
 
 Then visit: `http://localhost:8080/plumbing-leads-site/`
 
+## Configure production alerts (Vercel)
+
+Set these environment variables in your Vercel project settings:
+
+### Required (email alerts)
+
+- `RESEND_API_KEY`
+- `LEAD_ALERT_EMAIL`
+- `LEAD_FROM_EMAIL` (optional override; defaults to onboarding@resend.dev)
+
+### Optional (SMS alerts)
+
+- `TWILIO_ACCOUNT_SID`
+- `TWILIO_AUTH_TOKEN`
+- `TWILIO_FROM_NUMBER`
+- `PLUMBER_ALERT_NUMBER`
+
+You can also copy `.env.example` for local development.
+
 ## Next production steps
 
-1. Replace localStorage with real backend endpoint (Supabase/Firebase/Node API)
-2. Add spam protection (honeypot + reCAPTCHA)
-3. Add TCPA-compliant consent language for SMS
-4. Create plumber dashboard or automated dispatch rules
-5. Send instant notifications (SMS/email) to partner plumbers
+1. Add spam protection (honeypot + reCAPTCHA)
+2. Add TCPA-compliant consent language for SMS
+3. Create plumber dashboard or automated dispatch rules
+4. Add lead storage (Supabase/Postgres) for tracking + follow-up

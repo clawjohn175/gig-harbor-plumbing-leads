@@ -17,13 +17,22 @@ form.addEventListener('submit', async (e) => {
   data.city = 'Gig Harbor';
   data.state = 'WA';
 
-  // v1 demo: save lead locally for testing
-  // Next step: send to backend webhook / CRM / plumber dispatch queue.
-  const existing = JSON.parse(localStorage.getItem('plumbingLeads') || '[]');
-  existing.push(data);
-  localStorage.setItem('plumbingLeads', JSON.stringify(existing));
+  try {
+    const response = await fetch('/api/lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
 
-  msg.textContent = 'Thanks! Your request was submitted. A local plumbing pro will contact you soon.';
-  msg.style.color = '#0a7a35';
-  form.reset();
+    if (!response.ok) {
+      throw new Error('Submission failed');
+    }
+
+    msg.textContent = 'Thanks! Your request was submitted. A local plumbing pro will contact you soon.';
+    msg.style.color = '#0a7a35';
+    form.reset();
+  } catch (error) {
+    msg.textContent = 'Sorry, there was an issue sending your request. Please call instead for urgent jobs.';
+    msg.style.color = '#b00020';
+  }
 });
